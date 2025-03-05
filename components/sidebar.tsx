@@ -5,7 +5,16 @@ import React from "react";
 import "./sidebar.css";
 import { LogOut } from "lucide-react";
 import {
-  useClerk 
+  SignedIn
+} from '@clerk/nextjs'
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/components/ui/avatar"
+
+import {
+  useClerk
 } from '@clerk/nextjs'
 
 const routes = AppRoutes;
@@ -35,15 +44,23 @@ const SideBar = () => {
           </Link>
         ))}
       </div>
-      <button onClick={() => signOut({ redirectUrl: '/' })} className="w-14 mt-10 h-14 rounded-lg shadow-md flex flex-col items-center justify-center p-2 bg-white transition-all duration-200 hover:scale-110 hover:bg-blue-50 group icon-container icon-pulse-logout">
-        <LogOut
-          size={32}
-          className="text-gray-600 transition-colors duration-200 group-hover:text-destructive"
-        />
-        <span className="text-xs mt-1 text-gray-700 group-hover:text-destructive transition-colors duration-200">
-          Logout
-        </span>
-      </button>
+      <div className="flex flex-col justify-center items-center gap-5 mt-14">
+        <SignedIn>
+          <Avatar>
+            <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+            <AvatarFallback>CN</AvatarFallback>
+          </Avatar>
+        </SignedIn>
+        <button onClick={() => signOut({ redirectUrl: '/' })} className="w-14 h-14 rounded-lg shadow-md flex flex-col items-center justify-center p-2 bg-white transition-all duration-200 hover:scale-110 hover:bg-blue-50 group icon-container icon-pulse-logout">
+          <LogOut
+            size={32}
+            className="text-gray-600 transition-colors duration-200 group-hover:text-destructive"
+          />
+          <span className="text-xs mt-1 text-gray-700 group-hover:text-destructive transition-colors duration-200">
+            Logout
+          </span>
+        </button>
+      </div>
     </div>
   );
 };
