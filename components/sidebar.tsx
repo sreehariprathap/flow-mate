@@ -16,6 +16,7 @@ import {
 import {
   useClerk
 } from '@clerk/nextjs'
+import Image from "next/image";
 
 const routes = AppRoutes;
 
@@ -23,9 +24,9 @@ const SideBar = () => {
   const { signOut } = useClerk()
 
   return (
-    <div className="flex gap-2 flex-col p-5 w-36 bg-slate-100 h-full items-center">
-      <div className="h-28">
-        <img src="/app-logo.png" />
+    <div className="flex gap-2 flex-col p-5 w-28 bg-slate-100 h-screen items-center">
+      <div className="h-full pb-5">
+        <Image src="/flow.png" width={35} height={200} alt={"logo"}  />
       </div>
       <div className="flex flex-col gap-5">
         {routes.map((route) => (

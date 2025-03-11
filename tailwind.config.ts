@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 
+
 const config: Config = {
 	darkMode: ["class"],
 	content: [
@@ -101,7 +102,7 @@ const config: Config = {
 			}
 		}
 	},
-	plugins: [require("tailwindcss-animate"), addVariablesForColors,
+	plugins: [require("tailwindcss-animate"),require('tailwind-scrollbar'), addVariablesForColors,
 	function ({ matchUtilities, theme }: any) {
 		matchUtilities(
 			{

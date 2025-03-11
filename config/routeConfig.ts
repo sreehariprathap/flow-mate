@@ -1,4 +1,4 @@
-import { Home, Settings, User } from "lucide-react";
+import { AudioWaveform, Home, Settings, User } from "lucide-react";
 import { Label } from "recharts";
 
 export const AppRoutes = [
@@ -6,6 +6,11 @@ export const AppRoutes = [
     path: "/",
     icon: Home,
     label: "Home",
+  },
+  {
+    path: "flows",
+    icon: AudioWaveform,
+    label: "Flows",
   },
   {
     path: "profile",
