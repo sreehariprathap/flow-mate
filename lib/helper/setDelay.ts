@@ -1,4 +1,4 @@
-const setDelay = (seconds: number) => {
+export const setDelay = (seconds: number) => {
     return new Promise((resolve) => {
         setTimeout(resolve, seconds * 1000)
     });
