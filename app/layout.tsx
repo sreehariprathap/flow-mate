@@ -1,8 +1,8 @@
 import { type Metadata } from 'next'
 import { ClerkProvider } from '@clerk/nextjs'
 import { Inter } from 'next/font/google'
-import { ThemeProvider } from "@/components/theme-provider"
 import './globals.css'
+import { AppProviders } from '@/providers/AppProviders'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,14 +31,9 @@ export default function RootLayout({
           <title>Flow Starter</title>
         </head>
         <body className={inter.className}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
+          <AppProviders>
             {children}
-          </ThemeProvider>
+          </AppProviders>
         </body>
       </html>
     </ClerkProvider>

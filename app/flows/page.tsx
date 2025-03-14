@@ -3,6 +3,7 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Skeleton } from '@/components/ui/skeleton';
 import { AlertCircle, InboxIcon } from 'lucide-react';
 import { Suspense } from 'react';
+import CreateFlowDialogueComponent from './_components/createFlowDialogueComponent';
 
 const SkeletonLoader = () => (
   <div className="skeleton-loader space-y-2 p-3">
@@ -29,6 +30,7 @@ const UserFlows = async (): Promise<JSX.Element> => {
               Click the button below to create your first workflow
             </p>
           </div>
+          <CreateFlowDialogueComponent/>
         </div>
       );
     }
