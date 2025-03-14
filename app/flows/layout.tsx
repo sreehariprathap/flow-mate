@@ -25,8 +25,13 @@ const layout = ({ children }: { children: React.ReactNode }) => {
     <div className="flex justify-between">
 
       <div className="flex-1 w-full p-3 flex flex-col gap-4">
-        <SimpleAppHeader title="Flows" subtitle="manage your workflows" />
-        {children}</div>
+        <SimpleAppHeader 
+          title="Flows" 
+          subtitle="manage your workflows" 
+          pageAction={{ type: "CREATE-FLOW" }} 
+        />
+        {children}
+      </div>
       <div className="fixed bottom-0 left-1/2 transform -translate-x-1/2">
         <FloatingDock mobileClassName="translate-y-20" items={links} />
       </div>

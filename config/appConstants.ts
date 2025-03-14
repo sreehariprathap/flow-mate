@@ -48,3 +48,9 @@ export const appIntegrations = [
         image: '/companies/Discord.png'
     },
 ]
+
+
+export enum flowStatus {
+    DRAFT = 'DRAFT',
+    PUBLISHED = 'PUBLISHED'
+}
