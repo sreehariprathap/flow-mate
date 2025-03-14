@@ -1,6 +1,7 @@
 import React from "react";
 import CreateFlowDialogueComponent from "@/app/flows/_components/CreateFlowDialogueComponent";
 import DarkToggle from "./DarkToggle";
+import { SignedIn, UserButton } from "@clerk/nextjs";
 
 type ActionType = "CREATE-FLOW" | "EDIT";
 
@@ -43,6 +44,9 @@ const SimpleAppHeader: React.FC<SimpleAppHeaderProps> = ({
         <div className="flex gap-2 items-center">
             <RenderPageAction action={pageAction} />
             <DarkToggle />
+            <SignedIn>
+                <UserButton/>
+            </SignedIn>
         </div>
     </header>
 );

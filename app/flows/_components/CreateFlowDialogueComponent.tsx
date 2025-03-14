@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from "react"
+import React, { useCallback, useState } from "react"
 import { z } from "zod"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import CustomDialogHeader from "@/components/CustomDialogHeader"
-import { Cable } from "lucide-react"
+import { Cable, Loader2 } from "lucide-react"
 import {
     Form,
     FormControl,
@@ -25,6 +25,7 @@ import { createFlowSchema, createFlowSchemaType } from "@/schema/flow"
 import { Textarea } from "@/components/ui/textarea"
 import { useMutation } from "@tanstack/react-query"
 import { createFlow } from "@/api/createFlow"
+import { toast } from "sonner"
 
 const CreateFlowDialogueComponent = ({
     triggerText,
@@ -37,11 +38,19 @@ const CreateFlowDialogueComponent = ({
         mutationFn: createFlow,
         onSuccess: () => {
             // Further success logic here...
+            toast.success("Flow created successfully", { id: "create-flow" })
         },
         onError: (error) => {
             console.error("Error creating flow:", error)
-        },
+            toast.error("Error creating flow", { id: "create-flow" })
+        }
     })
+
+    const onSubmit = useCallback((values: createFlowSchemaType) => {
+        toast.loading("Creating flow...", { id: "create-flow" })
+        console.log(values)
+        mutate(values)
+    }, [mutate])
 
     const form = useForm<createFlowSchemaType>({
         resolver: zodResolver(createFlowSchema),
@@ -49,13 +58,13 @@ const CreateFlowDialogueComponent = ({
         mode: "onBlur",
     })
 
-    const onSubmit = (data: createFlowSchemaType) => {
-        console.log("Submitted data:", data)
-        // Further submit logic here...
-    }
-
     return (
-        <Dialog open={open} onOpenChange={setOpen}>
+        <Dialog open={open}
+            onOpenChange={(open) => {
+                form.reset();
+                setOpen(open);
+            }}
+        >
             <DialogTrigger asChild>
                 <Button>{triggerText ?? "Create flow"}</Button>
             </DialogTrigger>
@@ -110,7 +119,9 @@ const CreateFlowDialogueComponent = ({
                                     </FormItem>
                                 )}
                             />
-                            <Button type="submit" className="w-full">Submit</Button>
+                            <Button type="submit" className="w-full" disabled={isPending}>
+                                {isPending ? <Loader2 className="w-6 h-6" /> : <span>Proceed</span>}
+                            </Button>
                         </form>
                     </Form>
                 </div>

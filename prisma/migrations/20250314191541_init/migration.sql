@@ -5,6 +5,7 @@ CREATE TABLE "Workflow" (
     "description" TEXT,
     "name" TEXT NOT NULL,
     "definition" TEXT NOT NULL,
+    "status" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 

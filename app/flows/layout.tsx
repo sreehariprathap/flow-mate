@@ -1,16 +1,8 @@
 import React from "react";
 import { FloatingDock } from "@/components/ui/floating-dock";
-import {
-  IconBrandGithub,
-  IconBrandX,
-  IconExchange,
-  IconHome,
-  IconNewSection,
-  IconTerminal2,
-} from "@tabler/icons-react";
-import Image from "next/image";
 import { AppRoutes } from "@/config/routeConfig";
 import SimpleAppHeader from "@/components/simpleAppHeader";
+import { title } from "process";
 
 const links = AppRoutes.map((route) => ({
   title: route.label,
@@ -19,6 +11,7 @@ const links = AppRoutes.map((route) => ({
   ),
   href: route.path,
 }));
+
 
 const layout = ({ children }: { children: React.ReactNode }) => {
   return (

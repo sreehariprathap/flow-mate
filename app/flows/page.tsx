@@ -4,6 +4,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { AlertCircle, InboxIcon } from 'lucide-react';
 import { Suspense } from 'react';
 import CreateFlowDialogueComponent from './_components/CreateFlowDialogueComponent';
+import FlowCard from './_components/FlowCard';
 
 const SkeletonLoader = () => (
   <div className="skeleton-loader space-y-2 p-3">
@@ -36,7 +37,12 @@ const UserFlows = async (): Promise<JSX.Element> => {
     }
 
     // Handle the successful case as needed
-    return <div>Flows fetched successfully!</div>;
+    return <div className='grid grid-cols-1 gap-4'>
+      {flows.map((flow) => (
+        <FlowCard flow={flow} key={flow.id} />
+      ))}
+    </div>;
+
   } catch (error) {
     return (
       <Alert variant="destructive">
