@@ -1,5 +1,5 @@
 import React from "react";
-import CreateFlowDialogueComponent from "@/app/flows/_components/CreateFlowDialogueComponent";
+import CreateFlowDialogueComponent from "@/app/(dashboard)/flows/_components/CreateFlowDialogueComponent";
 import DarkToggle from "./DarkToggle";
 import { SignedIn, UserButton } from "@clerk/nextjs";
 

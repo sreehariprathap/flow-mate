@@ -56,10 +56,12 @@ const FlowCard: React.FC<FlowCardProps> = ({ flow }) => {
                     </div>
                 </div>
                 <div className="flex items-center gap-2">
-                    <Button variant="outline" size="sm" className="text-sm">
-                        <PenIcon />
-                        Edit
-                    </Button>
+                    <Link href={`/flow/editor/${flow.id}`}>
+                        <Button variant="outline" size="sm" className="text-sm">
+                            <PenIcon />
+                            Edit
+                        </Button>
+                    </Link>
                     <WorkflowActions onDelete={handleDelete} />
                 </div>
             </CardContent>
