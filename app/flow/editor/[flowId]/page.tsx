@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma"
 import { auth } from "@clerk/nextjs/server"
+import Editor from "../../_components/Editor";
 
 const page = async ({ params }: { params: { flowId: string } }) => {
     const flowId = params.flowId
@@ -18,7 +19,7 @@ const page = async ({ params }: { params: { flowId: string } }) => {
     }
 
     return (
-        <pre className="h-screen">{JSON.stringify({ flowId, userId })}</pre>
+        <Editor flow={flow} />
     )
 }
 export default page

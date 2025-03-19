@@ -34,7 +34,7 @@ const SimpleAppHeader: React.FC<SimpleAppHeaderProps> = ({
     subtitle,
     pageAction,
 }) => (
-    <header className="shadow-md px-3 py-1 w-full rounded-xl flex justify-between items-center">
+    <header className="shadow-md px-3 py-1 w-full rounded-xl flex justify-between items-center bg-background ">
         <div className="text-xl font-semibold flex flex-col gap-1">
             {title}
             <span className="text-sm font-normal text-slate-800 dark:text-neutral-300">

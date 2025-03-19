@@ -54,3 +54,6 @@ export enum flowStatus {
     DRAFT = 'DRAFT',
     PUBLISHED = 'PUBLISHED'
 }
+export enum TaskType {
+    LAUNCH_BROWSER = 'LAUNCH_BROWSER',
+}
