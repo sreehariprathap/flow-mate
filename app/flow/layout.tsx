@@ -1,16 +1,23 @@
-import SimpleAppHeader from "@/components/simpleAppHeader"
+import { FloatingDock } from "@/components/ui/floating-dock";
+import { AppRoutes } from "@/config/routeConfig";
 import React from "react"
+
+
+const links = AppRoutes.map((route) => ({
+  title: route.label,
+  icon: (
+    <route.icon className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+  ),
+  href: route.path,
+}));
 
 const layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="relative min-h-screen">
-      <div className="fixed top-0 left-0 w-full z-10 p-5">
-        <SimpleAppHeader
-          title="Editor"
-          subtitle="edit your flow"
-        />
+      {children}
+      <div className="fixed bottom-0 left-1/2 transform -translate-x-1/2">
+        <FloatingDock mobileClassName="translate-y-20" items={links} />
       </div>
-        {children}
     </div>
   )
 }

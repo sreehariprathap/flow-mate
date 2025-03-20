@@ -18,6 +18,7 @@ import TooltipWrapper from "@/components/TooltipWrapper";
 import { useState } from "react";
 import DeleteFlowDialogue from "./DeleteFlowDialogue";
 import { deleteFlow } from "@/api/deleteFlow";
+import { cn } from "@/lib/utils";
 
 const statusColors: Record<string, string> = {
     [flowStatus.DRAFT]: "bg-yellow-500 text-white",
@@ -39,11 +40,11 @@ const FlowCard: React.FC<FlowCardProps> = ({ flow }) => {
         <Card className="border border-separate shadow-sm rounded-lg overflow-hidden hover:shadow-md ease-linear transition-all dark:shadow-primary/30">
             <CardContent className="p-4 flex items-center justify-between h-[100px]">
                 <div className="flex items-center gap-4">
-                    <div className={`w-10 h-10 rounded-full flex items-center justify-center ${statusColors[flow.status]}`}>
+                    <div className={cn("w-10 h-10 rounded-full flex items-center justify-center",statusColors[flow.status])}>
                         {isDraft ? (
-                            <FileTextIcon className="h-5 w-5 text-white" />
+                            <FileTextIcon className="h-5 w-5 text-foreground" />
                         ) : (
-                            <PlayIcon className="h-5 w-5 text-white" />
+                            <PlayIcon className="h-5 w-5 text-foreground" />
                         )}
                     </div>
                     <div className="flex items-center gap-2">

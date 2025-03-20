@@ -57,3 +57,17 @@ export enum flowStatus {
 export enum TaskType {
     LAUNCH_BROWSER = 'LAUNCH_BROWSER',
 }
+
+export enum TaskParameterType {
+    STRING = 'STRING',
+    NUMBER = 'NUMBER',
+    BOOLEAN = 'BOOLEAN',
+    OBJECT = 'OBJECT',
+    ARRAY = 'ARRAY',
+    FILE = 'FILE',
+    DATE = 'DATE',
+    TIME = 'TIME',
+    DATETIME = 'DATETIME',
+    ENUM = 'ENUM',
+
+}

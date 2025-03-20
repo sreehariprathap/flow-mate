@@ -15,8 +15,7 @@ const links = AppRoutes.map((route) => ({
 
 const layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="flex justify-between">
-
+    <div className="flex flex-col justify-between">
       <div className="flex-1 w-full p-3 flex flex-col gap-4">
         <SimpleAppHeader 
           title="Flows" 
